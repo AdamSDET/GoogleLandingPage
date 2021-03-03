@@ -92,9 +92,6 @@ public class LandingPage extends BasePage {
         actualTexts.add(Driver.get().getTitle());
         Driver.get().navigate().back();
 
-        List<String> l=new ArrayList<>("aboutLink,storeLink,gmailLink, imagesLink, advertisingLink, commitmentsLink, businessLink, howSearchWorksLink, privacyLink, termsLink");
-        l.addAll(Arrays.asList("aboutLink,storeLink,gmailLink, imagesLink, advertisingLink, commitmentsLink, businessLink, howSearchWorksLink, privacyLink, termsLink"));
-        System.out.println("l = " + l);
         if (actualTexts.size() != linkTexts.size()) {
             Assert.fail("Item number mismatch");
         }
