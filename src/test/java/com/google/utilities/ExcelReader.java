@@ -43,9 +43,6 @@ public class ExcelReader {
 	}
 
 	/**
-	 * Code has been updated as per new POI version - 4.x.x
-	 *
-	 * @author NaveenKhunteta
 	 * @param sheetName
 	 * @param colNum
 	 * @param rowNum
@@ -65,8 +62,7 @@ public class ExcelReader {
 			sheet = workbook.getSheetAt(index);
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
-				// System.out.println(row.getCell(i).getStringCellValue().trim());
-				if (row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
+					if (row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
 					col_Num = i;
 			}
 			if (col_Num == -1)
@@ -96,8 +92,6 @@ public class ExcelReader {
 					cellText = (String.valueOf(cal.get(Calendar.YEAR))).substring(2);
 					cellText = cal.get(Calendar.DAY_OF_MONTH) + "/" + cal.get(Calendar.MONTH) + 1 + "/" + cellText;
 
-					// System.out.println(cellText);
-
 				}
 
 				return cellText;
@@ -114,9 +108,6 @@ public class ExcelReader {
 	}
 
 	/**
-	 * Code has been updated as per new POI version - 4.x.x
-	 *
-	 * @author NaveenKhunteta
 	 * @param sheetName
 	 * @param colNum
 	 * @param rowNum
@@ -203,10 +194,6 @@ public class ExcelReader {
 			if (cell == null)
 				cell = row.createCell(colNum);
 
-			// cell style
-			// CellStyle cs = workbook.createCellStyle();
-			// cs.setWrapText(true);
-			// cell.setCellStyle(cs);
 			cell.setCellValue(data);
 
 			fileOut = new FileOutputStream(path);
@@ -237,8 +224,7 @@ public class ExcelReader {
 		return true;
 	}
 
-	// returns true if sheet is removed successfully else false if sheet does
-	// not exist
+	// returns true if sheet is removed successfully else false if sheet does not exist
 	public boolean removeSheet(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1)
@@ -306,10 +292,8 @@ public class ExcelReader {
 			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheet(sheetName);
 			XSSFCellStyle style = workbook.createCellStyle();
-			// style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
 			XSSFCreationHelper createHelper = workbook.getCreationHelper();
-			// style.setFillPattern(XSSFCellStyle.NO_FILL);
-			for (int i = 0; i < getRowCount(sheetName); i++) {
+				for (int i = 0; i < getRowCount(sheetName); i++) {
 				row = sheet.getRow(i);
 				if (row != null) {
 					cell = row.getCell(colNum);
